@@ -1,0 +1,14 @@
+DROP TABLE IF EXISTS users ;
+
+CREATE TABLE IF NOT EXISTS users (
+  id NUMBER NOT NULL AUTO_INCREMENT,
+  username VARCHAR(64) NOT NULL,
+  password VARCHAR(64) NOT NULL,
+  fullname VARCHAR(75) NOT NULL,
+  email VARCHAR(145) NULL,
+  avatar VARCHAR(500) NULL,
+  state INT NOT NULL,
+  role INT NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE INDEX username_UNIQUE (username ASC)
+)

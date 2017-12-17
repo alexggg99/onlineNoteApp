@@ -1,0 +1,2 @@
+insert into users(username, password, fullname, state, role) VALUES ('user', '123456', 'user', 0, 2);
+insert into users(username, password, fullname, state, role) VALUES ('admin', '123456', 'admin', 0, 0);

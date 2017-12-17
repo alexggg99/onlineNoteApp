@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -8,11 +8,16 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
 
+    <!-- Security Required -->
+    <meta th:name="_csrf" th:content="${_csrf.token}"/>
+    <meta th:name="_csrf_header" th:content="${_csrf.headerName}"/>
+
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}"/>
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="css/login.css" rel="stylesheet" type="text/css" media="screen"/>
 
     <title>Online note app</title>
 
@@ -35,24 +40,18 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">Project name</a>
+            <ul class="nav navbar-nav pull-right mx-auto" style="width: 80px;" sec:authorize="${isAnonymous()}">
+                <li><a id="login" href="#">Login</a></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right mx-auto" style="width: 80px;" sec:authorize="${isAuthenticated()}">
+                <li><a id="logout" href="#">Logout</a></li>
+            </ul>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -60,11 +59,29 @@
 
 <!-- Begin page content -->
 <div class="container">
-    <div class="page-header">
-        <h1>Sticky footer with fixed navbar</h1>
-    </div>
-    <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
-    <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>
+    <dev class="nav navbar-nav pull-left" sec:authorize="${isAuthenticated()}">
+        <span>Welcome, </span><span sec:authentication="principal.username"></span>
+    </dev>
+</div>
+
+<!--login form-->
+<div class="loginWrapper">
+
+        <form class="form-signin">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <div id="loginError"></div>
+            <label for="login" class="sr-only">Email address</label>
+            <input type="text" id="loginInput" class="form-control" placeholder="Login"/>
+            <label for="passwordInput" class="sr-only">Password</label>
+            <input type="password" id="passwordInput" class="form-control" placeholder="Password"/>
+            <!--<div class="checkbox">-->
+                <!--<label>-->
+                    <!--<input type="checkbox" value="remember-me"> Remember me</input>-->
+                <!--</label>-->
+            <!--</div>-->
+            <button id="loginBtn" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+
 </div>
 
 <footer class="footer">
@@ -77,5 +94,7 @@
 ================================================== -->
 <script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+<script type="text/javascript" th:src="@{js/login.js}"/>
 </body>
 </html>
