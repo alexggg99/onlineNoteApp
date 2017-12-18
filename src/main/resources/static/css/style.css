@@ -7,6 +7,7 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+    font-family: 'Ubuntu', sans-serif !important;
 }
 .footer {
     position: absolute;
@@ -14,7 +15,31 @@ body {
     width: 100%;
     /* Set the fixed height of the footer here */
     height: 60px;
-    background-color: #f5f5f5;
+    text-align: center;
+    background-color: #275f7b;
+}
+.footer p {
+    color: #cccccc !important;
+}
+.jumbotron {
+    background-color: transparent;
+    background:rgba(0,0,0,0.4);
+    text-align: center;
+    letter-spacing: 2px;
+    margin-top: 60px;
+    padding:10px;
+}
+
+.signup {
+    margin-top: 15px;
+}
+
+.greenBtn {
+    background-color: rgba(114, 190, 35, 0.8);
+}
+
+.greenBtn:hover {
+    background-color: rgba(114, 190, 35, 1);
 }
 
 
@@ -37,3 +62,106 @@ body > .container {
 code {
     font-size: 80%;
 }
+
+/* Bootsrtap topbar styles */
+
+.navbar-custom {
+    background-color: #2f7394;
+    border-color: #275f7b;
+}
+.navbar-custom .navbar-brand {
+    color: #f7f1f1;
+}
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus {
+    color: #e4d1d1;
+    background-color: transparent;
+}
+.navbar-custom .navbar-text {
+    color: #f7f1f1;
+}
+.navbar-custom .navbar-nav > li > a {
+    color: #f7f1f1;
+}
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus {
+    color: #aba5a5;
+    background-color: transparent;
+}
+.navbar-custom .navbar-nav > .active > a,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus {
+    color: #aba5a5;
+    background-color: #275f7b;
+}
+.navbar-custom .navbar-nav > .disabled > a,
+.navbar-custom .navbar-nav > .disabled > a:hover,
+.navbar-custom .navbar-nav > .disabled > a:focus {
+    color: #cccccc;
+    background-color: transparent;
+}
+.navbar-custom .navbar-toggle {
+    border-color: #dddddd;
+}
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus {
+    background-color: #dddddd;
+}
+.navbar-custom .navbar-toggle .icon-bar {
+    background-color: #cccccc;
+}
+.navbar-custom .navbar-collapse,
+.navbar-custom .navbar-form {
+    border-color: #265e79;
+}
+.navbar-custom .navbar-nav > .dropdown > a:hover .caret,
+.navbar-custom .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #aba5a5;
+    border-bottom-color: #aba5a5;
+}
+.navbar-custom .navbar-nav > .open > a,
+.navbar-custom .navbar-nav > .open > a:hover,
+.navbar-custom .navbar-nav > .open > a:focus {
+    background-color: #275f7b;
+    color: #aba5a5;
+}
+.navbar-custom .navbar-nav > .open > a .caret,
+.navbar-custom .navbar-nav > .open > a:hover .caret,
+.navbar-custom .navbar-nav > .open > a:focus .caret {
+    border-top-color: #aba5a5;
+    border-bottom-color: #aba5a5;
+}
+.navbar-custom .navbar-nav > .dropdown > a .caret {
+    border-top-color: #f7f1f1;
+    border-bottom-color: #f7f1f1;
+}
+@media (max-width: 767) {
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
+        color: #f7f1f1;
+    }
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #aba5a5;
+        background-color: transparent;
+    }
+    .navbar-custom .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #aba5a5;
+        background-color: #275f7b;
+    }
+    .navbar-custom .navbar-nav .open .dropdown-menu > .disabled > a,
+    .navbar-custom .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+    .navbar-custom .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+        color: #cccccc;
+        background-color: transparent;
+    }
+}
+.navbar-custom .navbar-link {
+    color: #f7f1f1;
+}
+.navbar-custom .navbar-link:hover {
+    color: #aba5a5;
+}
+
+/* Bootsrtap topbar styles */

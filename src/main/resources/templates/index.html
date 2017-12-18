@@ -15,6 +15,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}"/>
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Ubuntu" rel="stylesheet"/>
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="screen"/>
     <link href="css/login.css" rel="stylesheet" type="text/css" media="screen"/>
@@ -30,7 +31,7 @@
 <body>
 
 <!-- Fixed navbar -->
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-custom navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -39,7 +40,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="#">Online notes</a>
             <ul class="nav navbar-nav pull-right mx-auto" style="width: 80px;" sec:authorize="${isAnonymous()}">
                 <li><a id="login" href="#">Login</a></li>
             </ul>
@@ -59,9 +60,15 @@
 
 <!-- Begin page content -->
 <div class="container">
-    <dev class="nav navbar-nav pull-left" sec:authorize="${isAuthenticated()}">
-        <span>Welcome, </span><span sec:authentication="principal.username"></span>
-    </dev>
+    <!--<dev class="nav navbar-nav pull-left" sec:authorize="${isAuthenticated()}">-->
+        <!--<span>Welcome, </span><span sec:authentication="principal.username"></span>-->
+    <!--</dev>-->
+    <div class="jumbotron" id="contentContainer">
+        <h1>Online notes app</h1>
+        <p>Your Notes with you wherever you go</p>
+        <p>Easy to use, protect your notes</p>
+        <button type="button" class="btn btn-lg greenBtn signup">Sign up for free!</button>
+    </div>
 </div>
 
 <!--login form-->
@@ -86,7 +93,7 @@
 
 <footer class="footer">
     <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
+        <p class="text-muted">Alexei Gashchuk &copy; 2015 - <span th:text="${today}"></span></p>
     </div>
 </footer>
 
