@@ -41,3 +41,9 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
+.modal-center {
+    top: 15%;
+    left:12%;
+    right:12%;
+}

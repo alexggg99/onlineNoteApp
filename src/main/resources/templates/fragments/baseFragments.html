@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <!-- Security Required -->
+    <meta th:name="_csrf" th:content="${_csrf.token}"/>
+    <meta th:name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}"/>
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Ubuntu" rel="stylesheet"/>
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="css/login.css" rel="stylesheet" type="text/css" media="screen"/>
+
+    <title>Online note app</title>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+</head>
+
+<section th:fragment="navbar">
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-custom navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Online notes</a>
+            <ul class="nav navbar-nav pull-right mx-auto" style="width: 80px;" sec:authorize="${isAnonymous()}">
+                <li><a id="login" href="#">Login</a></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right mx-auto" style="width: 80px;" sec:authorize="${isAuthenticated()}">
+                <li><a id="logout" href="#">Logout</a></li>
+            </ul>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+</section>
+
+<section th:fragment="login">
+    <!--login form-->
+    <div class="loginWrapper">
+
+        <form class="form-signin">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <div id="loginError"></div>
+            <label for="loginInput" class="sr-only">Email address</label>
+            <input type="text" id="loginInput" class="form-control" placeholder="Login"/>
+            <label for="passwordInput" class="sr-only">Password</label>
+            <input type="password" id="passwordInput" class="form-control" placeholder="Password"/>
+            <!--<div class="checkbox">-->
+            <!--<label>-->
+            <!--<input type="checkbox" value="remember-me"> Remember me</input>-->
+            <!--</label>-->
+            <!--</div>-->
+            <button id="loginBtn" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+    </div>
+    <script type="text/javascript" th:src="@{js/login.js}"/>
+</section>
+
+<section th:fragment="footer">
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">Alexei Gashchuk &copy; 2015 - <span th:text="${today}"></span></p>
+        </div>
+    </footer>
+</section>
+
+</html>
