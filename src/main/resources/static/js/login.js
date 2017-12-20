@@ -27,7 +27,7 @@ $(document).ready(function(){
         // return;
 
         $.ajax({
-            url: '/rest/login/authorize',
+            url: Config.baseUrl + '/rest/login/authorize',
             type: 'POST',
             contentType: 'application/json',
             headers: {
