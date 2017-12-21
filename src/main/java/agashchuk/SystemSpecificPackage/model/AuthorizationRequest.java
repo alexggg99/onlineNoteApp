@@ -5,9 +5,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 
 public class AuthorizationRequest {
-    @NotEmpty(message = "username cant be empty")
+    @NotEmpty(message = "Username cant be empty")
     private String username;
-    @NotEmpty(message = "password cant be empty")
+    @NotEmpty(message = "Password cant be empty")
     private String password;
 
     public String getUsername() {

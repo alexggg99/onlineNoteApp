@@ -10,4 +10,6 @@ public interface UserService {
 
     User getCurrentLoginUser();
 
+    User findUserByUsername(String username);
+
 }

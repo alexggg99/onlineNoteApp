@@ -16,21 +16,21 @@ public class GlobalAdvice {
 
     @ExceptionHandler(UserNotFound.class)
     public ResponseEntity<Object> handleNFException(){
-        logger.log(Level.WARNING,"IOException handler executed. User not found");
+        logger.log(Level.FINE,"IOException handler executed. User not found");
         //returning 404 error code
         return new ResponseEntity<Object>("User not found", new HttpHeaders(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(UserBlockedFound.class)
     public ResponseEntity<Object> handleBException(){
-        logger.log(Level.WARNING,"IOException handler executed. User blocked");
+        logger.log(Level.FINE,"IOException handler executed. User blocked");
         //returning 423 error code
         return new ResponseEntity<Object>("User is blocked", new HttpHeaders(), HttpStatus.LOCKED);
     }
 
     @ExceptionHandler(UserNotmatchFound.class)
     public ResponseEntity<Object> handleMException(){
-        logger.log(Level.WARNING,"IOException handler executed. User not match");
+        logger.log(Level.FINE,"IOException handler executed. User not match");
         //returning 401 error code
         return new ResponseEntity<Object>("User is blocked", new HttpHeaders(), HttpStatus.UNAUTHORIZED);
     }

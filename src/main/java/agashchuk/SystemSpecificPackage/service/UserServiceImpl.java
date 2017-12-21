@@ -1,6 +1,8 @@
 package agashchuk.SystemSpecificPackage.service;
 
 import agashchuk.SystemSpecificPackage.model.User;
+import agashchuk.SystemSpecificPackage.repo.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -12,6 +14,9 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public Boolean checkPassword(String rqPassword, String dbPassword) {
@@ -38,4 +43,8 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+    @Override
+    public User findUserByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
 }

@@ -31,34 +31,32 @@
                 <h4 id="signUpLabel">Registration</h4>
             </div>
             <div class="modal-body">
-                <div id="signupmassege">
-
+                <div id="signupmassage" class="margin-bottom-10">
                 </div>
                 <div class="form-group">
                     <label for="username" class="sr-only">Username</label>
-                    <input id="username" type="text" name="username" class="form-control" placeholder="username" maxlength="30"/>
+                    <input id="username" type="text" name="username" class="form-control" placeholder="username"/>
                 </div>
                 <div class="form-group">
                     <label for="email" class="sr-only">Username</label>
-                    <input id="email" type="email" name="email" class="form-control" placeholder="email" maxlength="50"/>
+                    <input id="email" type="email" name="email" class="form-control" placeholder="email"/>
                 </div>
                 <div class="form-group">
                     <label for="password" class="sr-only">Username</label>
-                    <input id="password" type="password" name="password" class="form-control" placeholder="Choose password" maxlength="40"/>
+                    <input id="password" type="password" name="password" class="form-control" placeholder="Choose password"/>
                 </div>
                 <div class="form-group">
                     <label for="passwordConfirm" class="sr-only">Username</label>
-                    <input id="passwordConfirm" type="text" name="passwordConfirm" class="form-control" placeholder="Confirm password" maxlength="40"/>
+                    <input id="passwordConfirm" type="password" name="passwordConfirm" class="form-control" placeholder="Confirm password"/>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" name="signup" class="btn btn-green">Sign Up</button>
+                <button id="" type="submit" name="signup" class="btn btn-green">Sign Up</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>
-
-
+    <script type="text/javascript" th:src="@{js/index.js}"/>
 </form>
 
 <!--/*/ <th:block th:include="fragments/baseFragments :: footer" ></th:block> /*/-->

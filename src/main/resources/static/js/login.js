@@ -27,7 +27,7 @@ $(document).ready(function(){
         // return;
 
         $.ajax({
-            url: Config.baseUrl + '/rest/login/authorize',
+            url: Config.loginUrl,
             type: 'POST',
             contentType: 'application/json',
             headers: {
@@ -40,9 +40,17 @@ $(document).ready(function(){
                 }, 600);
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                if(jqXHR.status == 401 || jqXHR.status == 404 || jqXHR.status == 400) {
+                if(jqXHR.status == 400) {
+                    var message = '';
+                    $.each(jqXHR.responseJSON.errors, function( index, value ) {
+                        var tmp = '<p class="bg-danger">' + value.defaultMessage + '</p>'
+                        message += tmp;
+                    });
+                    $('#loginError').html(message);
+                }
+                if(jqXHR.status == 401 || jqXHR.status == 404) {
                     //bad not found or Unauthorized
-                    $('#loginError').html('<p class="bg-danger">Bad credentials</p>');
+                    $('#loginError').html('<p class="bg-danger">User not found</p>');
                 }
                 if(jqXHR.status == 423) {
                     //bad request
@@ -54,7 +62,7 @@ $(document).ready(function(){
 
     $('#logout').click(function(event) {
         event.preventDefault()
-        $.get("/rest/login/logout", function(data, status){
+        $.get(Config.logoutUrl, function(data, status){
             setTimeout(function(){// wait for 5 secs(2)
                 location.reload(); // then reload the page.(3)
             }, 600);
