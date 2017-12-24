@@ -24,6 +24,8 @@ public class RegisterController {
         if (user != null) {
             return new ResponseEntity<Object>("Username is occupied", new HttpHeaders(), HttpStatus.CONFLICT);
         }
-        return null;
+        //create new user
+        user =  userService.createUser(request);
+        return new ResponseEntity<Object>("User '"+ user.getUsername() +"' is created. Check your email.", new HttpHeaders(), HttpStatus.CREATED);
     }
 }

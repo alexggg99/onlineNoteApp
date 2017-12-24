@@ -1,5 +1,6 @@
 package agashchuk.SystemSpecificPackage.service;
 
+import agashchuk.SystemSpecificPackage.model.RegistrationRequest;
 import agashchuk.SystemSpecificPackage.model.User;
 
 public interface UserService {
@@ -11,5 +12,7 @@ public interface UserService {
     User getCurrentLoginUser();
 
     User findUserByUsername(String username);
+
+    User createUser(RegistrationRequest request);
 
 }

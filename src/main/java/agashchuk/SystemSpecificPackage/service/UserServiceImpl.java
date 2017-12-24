@@ -1,6 +1,9 @@
 package agashchuk.SystemSpecificPackage.service;
 
+import agashchuk.SystemSpecificPackage.model.RegistrationRequest;
+import agashchuk.SystemSpecificPackage.model.Role;
 import agashchuk.SystemSpecificPackage.model.User;
+import agashchuk.SystemSpecificPackage.model.UserState;
 import agashchuk.SystemSpecificPackage.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -11,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -46,5 +50,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findUserByUsername(String username) {
         return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public User createUser(RegistrationRequest request) {
+        User user = new User(request.getUsername(), request.getUsername(), request.getPassword());
+        user.setRole(Role.Member);
+        user.setState(UserState.Blocked);
+        user.setActivationCode(UUID.randomUUID().toString());
+        return userRepository.save(user);
     }
 }

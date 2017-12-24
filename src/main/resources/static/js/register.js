@@ -18,9 +18,9 @@ $(document).ready(function() {
                 'X-CSRF-TOKEN': _csrf
             },
             data: JSON.stringify(data),
-            success: function(data){
-                if (data) {
-                    $('#signupmassage').html(data);
+            success: function(data, textStatus, xhr) {
+                if (xhr.status == 201) {
+                    $('#signupmassage').html('<div class="alert-success">' + data + '</div>');
                 }
             },
             error: function(jqXHR) {

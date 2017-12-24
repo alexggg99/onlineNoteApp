@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS users (
   avatar VARCHAR(500) NULL,
   state INT NOT NULL,
   role INT NOT NULL,
+  activation_code VARCHAR(52) NULL,
   PRIMARY KEY (id),
   UNIQUE INDEX username_UNIQUE (username ASC)
 )

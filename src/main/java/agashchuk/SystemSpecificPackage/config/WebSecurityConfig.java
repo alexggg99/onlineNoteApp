@@ -17,8 +17,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                    .authorizeRequests()
+        http.authorizeRequests()
                     .antMatchers("/", "/home", "/about").permitAll()
                     .antMatchers("static/css/**", "/webjars/**", "static/js/**", "static/img/**").permitAll()
                     .antMatchers("/note/**").hasRole("USER")
@@ -39,6 +38,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                rememberMeParameter("remember-me-param").
 //                rememberMeCookieName("my-remember-me").
 //                tokenValiditySeconds(86400);
+
+//        http.csrf().disable();
+//        http.headers().frameOptions().disable();
     }
 
     @Bean

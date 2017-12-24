@@ -30,6 +30,17 @@ public class User {
     @Enumerated(EnumType.ORDINAL)
     private Role role;
 
+    @Column(name = "activation_code")
+    private String activationCode;
+
+    public User(String username, String fullname, String password) {
+        this.username = username;
+        this.fullname = fullname;
+        this.password = password;
+    }
+
+    public User() { }
+
     public Long getId() {
         return id;
     }
@@ -84,5 +95,13 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public String getActivationCode() {
+        return activationCode;
+    }
+
+    public void setActivationCode(String activationCode) {
+        this.activationCode = activationCode;
     }
 }
