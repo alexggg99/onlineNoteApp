@@ -2,6 +2,9 @@ package agashchuk.SystemSpecificPackage.service;
 
 import agashchuk.SystemSpecificPackage.model.RegistrationRequest;
 import agashchuk.SystemSpecificPackage.model.User;
+import agashchuk.SystemSpecificPackage.model.UserState;
+
+import java.util.List;
 
 public interface UserService {
 
@@ -14,5 +17,7 @@ public interface UserService {
     User findUserByUsername(String username);
 
     User createUser(RegistrationRequest request);
+
+    List<User> findUsersForActivation(UserState userState);
 
 }

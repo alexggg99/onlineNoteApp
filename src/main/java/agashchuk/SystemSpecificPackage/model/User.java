@@ -19,6 +19,9 @@ public class User {
     @Column(name = "fullname")
     private String fullname;
 
+    @Column(name = "email")
+    private String email;
+
     @Column(name = "avatar")
     private String avatar;
 
@@ -33,10 +36,11 @@ public class User {
     @Column(name = "activation_code")
     private String activationCode;
 
-    public User(String username, String fullname, String password) {
+    public User(String username, String fullname, String password, String email) {
         this.username = username;
         this.fullname = fullname;
         this.password = password;
+        this.email = email;
     }
 
     public User() { }
@@ -71,6 +75,14 @@ public class User {
 
     public void setFullname(String fullname) {
         this.fullname = fullname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getAvatar() {

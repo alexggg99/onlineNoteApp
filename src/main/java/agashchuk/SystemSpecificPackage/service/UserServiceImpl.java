@@ -54,10 +54,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User createUser(RegistrationRequest request) {
-        User user = new User(request.getUsername(), request.getUsername(), request.getPassword());
+        User user = new User(request.getUsername(), request.getUsername(), request.getPassword(), request.getEmail());
         user.setRole(Role.Member);
         user.setState(UserState.Blocked);
         user.setActivationCode(UUID.randomUUID().toString());
         return userRepository.save(user);
+    }
+
+    @Override
+    public List<User> findUsersForActivation(UserState userState) {
+        return userRepository.findByActivationCodeNotNullAndStateEquals(userState);
     }
 }
