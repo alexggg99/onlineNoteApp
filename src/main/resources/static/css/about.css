@@ -1,0 +1,155 @@
+section {
+    padding-bottom: 35px;
+    font-size: 140%;
+}
+
+section:first-of-type {
+    margin-top: 50px;
+}
+
+.section-title {
+    text-transform: capitalize;
+    text-align: left;
+}
+
+.section-subtitle {
+    padding: 5px 5px;
+    font-size: 80%;
+}
+
+section:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.section-header {
+    opacity: 0;
+    margin-top: 100px;
+    animation: 1s slidefade 1s forwards;
+}
+
+@keyframes slidefade {
+    100% {
+        opacity: 1;
+        margin: 0;
+    }
+}
+
+.item-boxes {
+    text-align: center;
+    padding: 0px 15px;
+    margin-bottom: 15px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+.icon {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    border: 1px solid #f1f1f1;
+    display: inline-block;
+    border-radius: 30px;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.item-boxes i{
+    font-size: 26px;
+    line-height: 60px;
+    color: #61D2B4;
+}
+.item-boxes h4{
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.item-boxes:hover .icon{
+    background: #61D2B4;
+}
+.item-boxes:hover .icon i{
+    color: #fff;
+}
+
+.pricing-table{
+    padding: 0px 0px 40px 0px;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border: transparent;
+    border: 1px solid #f1f1f1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.pricing-table:hover{
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.pricing-details h2{
+    font-size: 26px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    background: #f1f1f1;
+    padding: 30px 0;
+}
+.pricing-details span{
+    display: inline-block;
+    font-size: 48px;
+    font-weight: 400;
+    color: #61D2B4;
+    margin-bottom: 20px;
+}
+.pricing-details ul {
+    margin-bottom: 15px;
+}
+.pricing-details li{
+    font-size: 15px;
+    border-bottom: 1px dotted #f1f1f1;
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+.btn-common {
+    border: 1px solid #f1f1f1;
+    background: #61D2B4;
+    position: relative;
+    color: #fff;
+    z-index: 1;
+    border-radius: 30px;
+}
+.btn-common:hover{
+     color: #fff;
+     background: #33b391;
+     border-color: #33b391;
+     transition: all .50s ease-in-out;
+     -moz-transition: all .50s ease-in-out;
+     -webkit-transition: all .50s ease-in-out;
+}
+.btn{
+    font-size: 14px;
+    padding: 11px 40px;
+    font-weight: 400;
+    color: #fff;
+    text-transform: uppercase;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    display: inline-block;
+}
+.btn:focus,
+.btn:active{
+    box-shadow: none;
+    outline: none;
+    color: #fff;
+}
+@media (max-width: 600px) {
+    .pricing-table{
+        text-align: center;
+    }
+}
+

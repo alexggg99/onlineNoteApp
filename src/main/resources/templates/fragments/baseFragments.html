@@ -15,7 +15,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}"/>
-    <link href="https://fonts.googleapis.com/css?family=Bungee|Ubuntu" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Nunito|Poppins|Ubuntu" rel="stylesheet"/>
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="screen"/>
     <link href="css/login.css" rel="stylesheet" type="text/css" media="screen"/>
@@ -48,7 +48,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Online notes</a>
+            <a th:href="@{/}" href="/" class="navbar-brand">Online notes</a>
             <ul class="nav navbar-nav pull-right mx-auto" style="width: 80px;" sec:authorize="${isAnonymous()}">
                 <li><a id="login" href="#">Login</a></li>
             </ul>
@@ -58,9 +58,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li class="active"><a th:href="@{/}" href="/">Home</a></li>
+                <li><a th:href="@{/about}" href="/about">About</a></li>
+                <li><a th:href="@{/contact}" href="/contact">Contact</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
