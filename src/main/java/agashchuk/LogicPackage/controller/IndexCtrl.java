@@ -15,4 +15,9 @@ public class IndexCtrl {
     public String about(Model model) {
         return "about";
     }
+
+    @GetMapping("/contact")
+    public String contact(Model model) {
+        return "contact";
+    }
 }

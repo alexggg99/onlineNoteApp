@@ -1,0 +1,168 @@
+/* ==========================================================================
+  Contact Us
+  ========================================================================== */
+#contact{
+    height: 88vh;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    flex-direction: row;
+
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+
+    align-items: center;
+    padding:10px 5px;
+
+    justify-content: center;
+}
+.contact-form {
+    align-self: center;
+    justify-content: center;
+}
+@media (max-width: 600px) {
+    #contact{
+        display: block;
+        height: 100%;
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-height: 620px) {
+    #contact{
+        display: block;
+        height: 100%;
+        padding-bottom: 20px;
+        padding-top: 75px;
+    }
+}
+.contact-us{
+    opacity: 0;
+    margin-bottom: 105px;
+    animation: 1s slidefade 1s forwards;
+}
+.contact-us h3{
+    font-size: 36px;
+    margin-bottom: 45px;
+}
+@keyframes slidefade {
+    100% {
+        opacity: 1;
+        margin-bottom: 45px;
+    }
+}
+.contact-us p span{
+    color: #61D2B4;
+    padding-left: 10px;
+}
+.form-control{
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 14px;
+    border-color: #343a40;
+    border-radius: 0px;
+    /*color: #fff;*/
+    background: transparent;
+    font-size: 14px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.form-control:focus{
+    box-shadow: none;
+    /*color: #fff;*/
+    border-color: #61D2B4;
+    background: transparent;
+    outline: none;
+}
+.btn.disabled, .btn:disabled{
+    opacity: 1;
+}
+
+.text-danger{
+    font-size: 14px;
+    margin-top: 10px;
+}
+.list-unstyled li{
+    color: #d9534f;
+}
+
+/* ==========================================================================
+    Social Iocns
+   ========================================================================== */
+.social-icons {
+    margin-top:40px
+}
+.social-icons ul {
+    margin:0;
+    padding:0;
+    list-style:none
+}
+.social-icons ul li {
+    display:inline
+}
+.social-icons ul li a {
+    display:inline-block;
+    margin-right: 5px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    line-height: 40px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    background: #ddd;
+    font-size: 16px
+}
+.social-icons ul li a:hover {
+    color:#fff
+}
+.facebook a {
+    color:#4867AA
+}
+.facebook a:hover {
+    background:#4867AA
+}
+.twitter a {
+    color:#1DA1F2
+}
+.twitter a:hover {
+    background:#1DA1F2
+}
+.google-plus a {
+    color:#DD4D42
+}
+.google-plus a:hover {
+    background:#DD4D42
+}
+.youtube a {
+    color:#DF2926
+}
+.youtube a:hover {
+    background:#DF2926
+}
+.linkedin a {
+    color:#007BB6
+}
+.linkedin a:hover {
+    background:#007BB6
+}
+.pinterest a {
+    color:#BD081C
+}
+.pinterest a:hover {
+    background:#BD081C
+}
+.dribbble a {
+    color:#EA4C89
+}
+.dribbble a:hover {
+    background:#EA4C89
+}
+.behance a {
+    color:#0B7CFF
+}
+.behance a:hover {
+    background:#0B7CFF
+}
