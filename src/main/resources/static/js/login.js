@@ -48,7 +48,10 @@ $(document).ready(function(){
                     });
                     $('#loginError').html(message);
                 }
-                if(jqXHR.status == 401 || jqXHR.status == 404) {
+                if(jqXHR.status == 401) {
+                    $('#loginError').html('<p class="bg-danger">Wrong password</p>');
+                }
+                if(jqXHR.status == 404) {
                     //bad not found or Unauthorized
                     $('#loginError').html('<p class="bg-danger">User not found</p>');
                 }

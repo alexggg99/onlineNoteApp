@@ -20,4 +20,8 @@ public interface UserService {
 
     List<User> findUsersForActivation(UserState userState);
 
+    User findUserByActivationCode(String activationCode);
+
+    User save(User user);
+
 }
