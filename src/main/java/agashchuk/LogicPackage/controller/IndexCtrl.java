@@ -20,4 +20,14 @@ public class IndexCtrl {
     public String contact(Model model) {
         return "contact";
     }
+
+    @GetMapping("/note/test")
+    public String note(Model model) {
+        return "contact";
+    }
+
+    @GetMapping("/admin/test")
+    public String admin(Model model) {
+        return "contact";
+    }
 }

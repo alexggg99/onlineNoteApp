@@ -37,14 +37,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getCurrentLoginUser() {
+    public boolean getCurrentLoginUser() {
         if (SecurityContextHolder.getContext().getAuthentication() != null) {
-            if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof User) {
-                return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            if (SecurityContextHolder.getContext().getAuthentication().getPrincipal()
+                    instanceof org.springframework.security.core.userdetails.User) {
+                return SecurityContextHolder.getContext().getAuthentication().getPrincipal() != null;
             }
         }
 
-        return null;
+        return false;
     }
 
     @Override
@@ -55,7 +56,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User createUser(RegistrationRequest request) {
         User user = new User(request.getUsername(), request.getUsername(), request.getPassword(), request.getEmail());
-        user.setRole(Role.Member);
+        user.setRole(Role.User);
         user.setState(UserState.Blocked);
         String code = UUID.randomUUID().toString();
         user.setActivationCode(code);

@@ -16,13 +16,14 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
+@RequestMapping(value = "register")
 public class RegisterController {
 
     @Autowired
     private UserService userService;
 
     @ResponseBody
-    @PostMapping(value = "signup")
+    @PostMapping(value = "/signup")
     public ResponseEntity<Object> registerUser(@Validated(FirstValidationGroupSequence.class) @RequestBody RegistrationRequest request) {
         User user = userService.findUserByUsername(request.getUsername());
         if (user != null) {
@@ -34,7 +35,7 @@ public class RegisterController {
     }
 
     ///activate?code=a7091869-1ce5-4415-b001-97770d9e8876
-    @GetMapping(value = "activate")
+    @GetMapping(value = "/activate")
     public String activateUser(@RequestParam("code") String activationCode, Model model) {
         User user = userService.findUserByActivationCode(activationCode);
         if (user == null) {

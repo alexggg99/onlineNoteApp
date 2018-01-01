@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<head>
+    <!--/*/ <th:block th:include="fragments/baseFragments :: header" ></th:block> /*/-->
+</head>
+<body>
+
+<!--/*/ <th:block th:include="fragments/baseFragments :: navbar" ></th:block> /*/-->
+
+<link th:href="@{/css/login.css}" rel="stylesheet" type="text/css" media="screen"/>
+
+<div class="vertical-center">
+    <div class="center-div">
+        <div class="container">
+            <div>
+                <div th:if="${param.error}">
+                    <div class="alert alert-danger">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <span>Username or Password is wrong! Please check again.</span>
+                    </div>
+                </div>
+                <div class="account-wall">
+                    <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+                         alt=""/>
+                    <form th:action="@{/login}" class="form-signin" method="post">
+                        <input type="text" name="username" class="form-control" placeholder="Username" required="required" />
+                        <input type="password" name="password" class="form-control" placeholder="Password" required="required" />
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">
+                            Sign in</button>
+                        <label class="checkbox pull-left">
+                            <input type="checkbox" name="remember-me"/>
+                            Remember me
+                        </label>
+                        <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .vertical-center {
+        min-height: 90%;  /* Fallback for browsers do NOT support vh unit */
+        min-height: 90vh; /* These two lines are counted as one :-)       */
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+    .center-div {
+        width: 100%;
+    }
+</style>
+
+<!--/*/ <th:block th:include="fragments/baseFragments :: footer" ></th:block> /*/-->
+
+</body>
+</html>

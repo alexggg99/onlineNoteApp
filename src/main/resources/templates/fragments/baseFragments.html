@@ -17,8 +17,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}"/>
     <link href="https://fonts.googleapis.com/css?family=Nunito|Poppins|Ubuntu" rel="stylesheet"/>
     <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="screen"/>
-    <link href="css/login.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="screen"/>
 
     <title>Online note app</title>
 
@@ -51,10 +50,15 @@
             </button>
             <a th:href="@{/}" href="/" class="navbar-brand">Online notes</a>
             <ul class="nav navbar-nav pull-right mx-auto" style="width: 80px;" sec:authorize="${isAnonymous()}">
-                <li><a id="login" href="#">Login</a></li>
+                <li><a th:href="@{/login}">Login</a></li>
             </ul>
             <ul class="nav navbar-nav pull-right mx-auto" style="width: 80px;" sec:authorize="${isAuthenticated()}">
-                <li><a id="logout" href="#">Logout</a></li>
+                <form id="logoutForm" th:action="@{/logout}" method="post" style="display: none">
+                    <input type="submit"/>
+                </form>
+                <li>
+                    <a id="logout" href="#">Logout</a>
+                </li>
             </ul>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
@@ -69,32 +73,14 @@
 
 </section>
 
-<section th:fragment="login">
-    <!--login form-->
-    <div class="loginWrapper">
-
-        <form class="form-signin">
-            <h2 class="form-signin-heading">Please sign in</h2>
-            <div id="loginError"></div>
-            <label for="loginInput" class="sr-only">Email address</label>
-            <input type="text" id="loginInput" class="form-control" placeholder="Login"/>
-            <label for="passwordInput" class="sr-only">Password</label>
-            <input type="password" id="passwordInput" class="form-control" placeholder="Password"/>
-            <!--<div class="checkbox">-->
-            <!--<label>-->
-            <!--<input type="checkbox" value="remember-me"> Remember me</input>-->
-            <!--</label>-->
-            <!--</div>-->
-            <button id="loginBtn" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        </form>
-    </div>
-    <script type="text/javascript" th:src="@{js/login.js}"/>
-</section>
-
 <section th:fragment="footer">
     <footer class="footer">
         <div class="container">
-            <p class="text-muted">Alexei Gashchuk &copy; 2015 - <span th:text="${today}"></span></p>
+            <p class="text-muted">Alexei Gashchuk &copy; 2015 - <span th:text="${today}"></span>
+                <span sec:authorize="${isAuthenticated()}">
+                    <span>   Welcome, </span><span sec:authentication="principal.username"></span>
+                </span>
+            </p>
         </div>
     </footer>
 </section>

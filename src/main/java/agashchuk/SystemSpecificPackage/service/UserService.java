@@ -12,7 +12,7 @@ public interface UserService {
 
     void authorize(User user);
 
-    User getCurrentLoginUser();
+    boolean getCurrentLoginUser();
 
     User findUserByUsername(String username);
 
