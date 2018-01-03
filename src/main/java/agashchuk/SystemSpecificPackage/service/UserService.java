@@ -12,7 +12,9 @@ public interface UserService {
 
     void authorize(User user);
 
-    boolean getCurrentLoginUser();
+    boolean isUserLogged();
+
+    User getCurrentlyLoggedUser();
 
     User findUserByUsername(String username);
 
@@ -23,5 +25,7 @@ public interface UserService {
     User findUserByActivationCode(String activationCode);
 
     User save(User user);
+
+    List<User> findAll();
 
 }

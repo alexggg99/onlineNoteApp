@@ -1,0 +1,47 @@
+#notepad {
+    display: none;
+}
+.noteheader {
+   border: 1px solid grey;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 0 10px;
+    background: linear-gradient(#ffffff, #ECEAE7);
+}
+.noteheader:not(:last-child) {
+    margin-bottom: 10px;
+}
+.text {
+    font-size: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.timetext {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.buttons{
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.flex-item {
+    display: inline-block;
+}
+#editNoteTextarea {
+    width: 100%;
+    max-width: 100%;
+    font-size: 16px;
+    line-height: 1.5em;
+    border-left-width: 20px;
+    border-left-color: #CA3DD9;
+    background-color: #FBEFFF;
+    padding: 10px;
+}
+#allNotes, #doneNote, .delete {
+    display: none;
+}

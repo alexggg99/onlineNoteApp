@@ -1,6 +1,10 @@
 package agashchuk.SystemSpecificPackage.model;
 
+import agashchuk.LogicPackage.model.Note;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "USERS")
@@ -35,6 +39,9 @@ public class User {
 
     @Column(name = "activation_code")
     private String activationCode;
+
+    @OneToMany(mappedBy = "user")
+    private List<Note> notes = new ArrayList<>();
 
     public User(String username, String fullname, String password, String email) {
         this.username = username;
@@ -115,5 +122,13 @@ public class User {
 
     public void setActivationCode(String activationCode) {
         this.activationCode = activationCode;
+    }
+
+    public List<Note> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<Note> notes) {
+        this.notes = notes;
     }
 }

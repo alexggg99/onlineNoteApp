@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean getCurrentLoginUser() {
+    public boolean isUserLogged() {
         if (SecurityContextHolder.getContext().getAuthentication() != null) {
             if (SecurityContextHolder.getContext().getAuthentication().getPrincipal()
                     instanceof org.springframework.security.core.userdetails.User) {
@@ -46,6 +46,16 @@ public class UserServiceImpl implements UserService {
         }
 
         return false;
+    }
+
+    @Override
+    public User getCurrentlyLoggedUser() {
+        if (isUserLogged()) {
+            org.springframework.security.core.userdetails.User user =
+                    (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            return userRepository.findByUsername(user.getUsername());
+        }
+        return null;
     }
 
     @Override
@@ -76,5 +86,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User save(User user) {
         return userRepository.save(user);
+    }
+
+    @Override
+    public List<User> findAll() {
+        return (List<User>) userRepository.findAllOrOrderByUsername();
     }
 }

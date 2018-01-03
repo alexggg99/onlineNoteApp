@@ -12,4 +12,14 @@ CREATE TABLE IF NOT EXISTS users (
   activation_code VARCHAR(52) NULL,
   PRIMARY KEY (id),
   UNIQUE INDEX username_UNIQUE (username ASC)
-)
+);
+
+CREATE TABLE IF NOT EXISTS notes (
+  id NUMBER NOT NULL AUTO_INCREMENT,
+  user_id NUMBER NOT NULL,
+  note VARCHAR(1000) NULL,
+  created_at timestamp not null,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id)
+    REFERENCES users(id)
+);

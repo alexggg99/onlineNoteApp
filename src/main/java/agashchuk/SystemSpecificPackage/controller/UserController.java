@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -27,9 +28,18 @@ public class UserController {
 
     @GetMapping(value = "/logout")
     public void logout(HttpServletRequest request, HttpServletResponse response) {
-        boolean isUserLogged = userService.getCurrentLoginUser();
+        boolean isUserLogged = userService.isUserLogged();
         if (isUserLogged) {
-            new SecurityContextLogoutHandler().logout(request, null, null);
+            request.getSession().invalidate();
+            for (Cookie cookie : request.getCookies()) {
+                if (cookie.getName().equals("java-remember-me")) {
+                    //Clear cookie
+                    cookie.setMaxAge(0);
+                    cookie.setValue(null);
+                    cookie.setPath(request.getContextPath());
+                    response.addCookie(cookie);
+                }
+            }
         }
     }
 
