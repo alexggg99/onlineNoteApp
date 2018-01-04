@@ -3,9 +3,11 @@ package agashchuk.SystemSpecificPackage.service;
 import agashchuk.SystemSpecificPackage.model.RegistrationRequest;
 import agashchuk.SystemSpecificPackage.model.User;
 import agashchuk.SystemSpecificPackage.model.UserState;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 public interface UserService {
 
     Boolean checkPassword(String rqPassword, String dbPassword);
@@ -27,5 +29,11 @@ public interface UserService {
     User save(User user);
 
     List<User> findAll();
+
+    User findById(long id);
+
+    User blockUser(User user);
+
+    User unblockUser(User user);
 
 }

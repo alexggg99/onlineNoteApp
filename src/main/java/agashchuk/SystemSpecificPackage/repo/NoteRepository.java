@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 
 public interface NoteRepository extends CrudRepository<Note, Long> {
-    Iterable<Note> findByUserOrderByTimestamp(User user);
+    Iterable<Note> findByUserOrderByTimestampDesc(User user);
     Note findById(Long id);
 }

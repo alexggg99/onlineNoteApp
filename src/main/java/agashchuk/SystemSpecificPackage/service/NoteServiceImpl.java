@@ -16,7 +16,7 @@ public class NoteServiceImpl implements NoteService {
 
     @Override
     public List<Note> findAllByUser(User user) {
-        return (List<Note>) noteRepository.findByUserOrderByTimestamp(user);
+        return (List<Note>) noteRepository.findByUserOrderByTimestampDesc(user);
     }
 
     @Override

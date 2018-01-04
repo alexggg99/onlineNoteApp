@@ -66,6 +66,7 @@
                 <li><a th:href="@{/}" href="/">Home</a></li>
                 <li><a th:href="@{/about}" href="/about">About</a></li>
                 <li><a th:href="@{/contact}" href="/contact">Contact</a></li>
+                <li sec:authorize="${hasRole('ROLE_ADMIN')}"><a th:href="@{/admin}" href="/contact">Admin</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

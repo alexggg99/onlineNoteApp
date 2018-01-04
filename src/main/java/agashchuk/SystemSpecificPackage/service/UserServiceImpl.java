@@ -90,6 +90,25 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findAll() {
-        return (List<User>) userRepository.findAllOrOrderByUsername();
+        return (List<User>) userRepository.findAllOrderByUsername();
+    }
+
+    @Override
+    public User findById(long id) {
+        return userRepository.findById(id);
+    }
+
+    @Override
+    public User blockUser(User user) {
+        user.setState(UserState.Blocked);
+        save(user);
+        return user;
+    }
+
+    @Override
+    public User unblockUser(User user) {
+        user.setState(UserState.Activated);
+        save(user);
+        return user;
     }
 }
